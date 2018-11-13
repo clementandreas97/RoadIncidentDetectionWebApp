@@ -1,2 +1,0 @@
-from predict.preprocessor import Preprocessor
-from predict.namedEntityRecognition import LocationPredictor
