@@ -1,0 +1,77 @@
+body {
+    background-color: #393939;
+}
+
+.center-container {
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	height: 50%;
+	width: 80%;
+	margin: auto;
+	background: #555555;
+	display: inline-block;
+	font-family: "Verdana";
+	color: white;
+	-webkit-box-reflect: below 10px -webkit-linear-gradient(bottom, rgba(255,255,255,0.3) 0%, transparent 40%, transparent 100%);
+}
+
+.content {
+	width: 60%;
+	height: 80%;
+	margin-top: 3%;
+	margin-left: 2%;
+	margin-right: 2%;
+	display: inline-block;
+	vertical-align: top;
+	font-family: "Verdana";
+}
+
+.content-title {
+	font-size: 200%;
+	margin-bottom: 3%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.tweet-description {
+	font-size: 100%;
+	text-align: justify;
+  text-justify: inter-word;
+  padding: 2%;
+  background: #888888;
+
+}
+
+.incident-description {
+	font-size: 100%;
+	text-align: center;
+  text-justify: inter-word;
+  margin: 3%;
+}
+
+.tweet-form {
+	width: 35%;
+	height: 80%;
+	margin-top: 3%;
+	display: inline-block;
+	border-right: 1px solid white;
+	vertical-align: top;
+}
+
+.parameter {
+	margin-left: 5%;
+	margin-bottom:3%;
+}
+
+.tweet-textarea {
+	margin-left: 5%;
+	width: 80%;
+	display: inline-block;
+}
+
+.tweet-submit {
+	margin-left: 5%;
+	margin-top: 3%;
+}

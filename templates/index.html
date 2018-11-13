@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Road Incident Detector</title>
+	<link rel="stylesheet" href="custom.css">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="center-container">
+		<form id="tweet-form" class="tweet-form">
+			<div class="parameter">Tweet: </div>
+			<textarea id="tweet-textarea" name="message" rows="10" cols="50" class="tweet-textarea" placeholder="Enter tweet here .."></textarea>
+			<input type="button" class="tweet-submit" id="submit-button" value="submit">
+		</form>
+		<div class="content">
+			<div id="incident-status" class="content-title">
+				No incident detected.
+			</div>
+			<div id="tweet-preview" class="tweet-description">
+				Waiting for input ...
+			</div>
+			<div id="location" class="incident-description">
+				Stay safe on the road!
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>
+
+<script>
+	$(document).ready(function(){
+		$("#submit-button").click(function(){
+			var tweet = $('#tweet-textarea').val();
+
+	    jQuery.ajax ({
+		    url: "http://127.0.0.1:5000/predict",
+		    type: "POST",
+		    data: JSON.stringify({'tweets':[tweet]}),
+		    dataType: "json",
+		    contentType: "application/json",
+		    success: function(data){
+			    document.getElementById("tweet-preview").innerHTML = tweet;
+		    	if (data[0] == 1) {
+			    	document.getElementById("incident-status").innerHTML = "Incident detected!";
+			   	  document.getElementById("location").innerHTML = "Incident detected at " + data[1];
+		   	  } else {
+		   	  	document.getElementById("incident-status").innerHTML = "No incident detected.";
+			   	  document.getElementById("location").innerHTML = "Stay safe on the road!";
+		      }
+		    }
+			});
+
+		});
+	});
+</script>
