@@ -42,9 +42,15 @@
 		    success: function(data){
 			    document.getElementById("tweet-preview").innerHTML = tweet;
 		    	if (data[0] == 1) {
+		    		document.getElementById('incident-status').style.color = 'red';
 			    	document.getElementById("incident-status").innerHTML = "Incident detected!";
-			   	  document.getElementById("location").innerHTML = "Incident detected at " + data[1];
+			    	if (data[1] == '-') {
+			   	  	document.getElementById("location").innerHTML = "Unfortunately we could not locate the incident.";
+			    	} else {
+			   	  	document.getElementById("location").innerHTML = "Incident detected at " + data[1];
+			    	}
 		   	  } else {
+		   	  	document.getElementById('incident-status').style.color = 'green';
 		   	  	document.getElementById("incident-status").innerHTML = "No incident detected.";
 			   	  document.getElementById("location").innerHTML = "Stay safe on the road!";
 		      }
